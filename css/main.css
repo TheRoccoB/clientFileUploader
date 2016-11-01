@@ -1,0 +1,16 @@
+.area
+{
+    border: 5px dotted #ccc;
+    /*padding: 50px;*/
+    height:300px;
+    text-align: center;
+}
+
+.drag
+{
+    border: 5px dotted green;
+    background-color: yellow;
+}
+
+
+
