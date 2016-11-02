@@ -4,7 +4,7 @@
     <title></title>
 
     <script src="//localhost:35729/livereload.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>-->
 
     <script src="js/main.js"></script>
 
@@ -16,14 +16,19 @@
 <div>
     <div id="drop_area" class="area">
         <label for="files" style="width:100%;height:100%;display:block;cursor:pointer">
-            <div class="file-img" style="position:relative;/*background-image:url('img/img.jpg');*/
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: contain;
-    width:100%;height:100%;
-    ">
-                <div style="position:relative;margin:auto;top:50%;transform:translateY(-50%)">Drop your files</div>
+            <div style="position:relative;width:100%;height:calc(100% - 25px);padding:5px;box-sizing: border-box">
+                <div class="file-img" style="position:relative;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+        width:100%;height:100%;
+        /*background-image:url(img/img.jpg);*/
+        ">
+                    <div class="drop-text" style="position:relative;margin:auto;top:50%;transform:translateY(-50%)">Drop your files</div>
                 </div>
+            </div>
+            <div class="file-info" style="position:relative"></div>
+
         </label>
     </div>
 

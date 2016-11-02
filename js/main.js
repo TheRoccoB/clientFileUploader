@@ -1,4 +1,4 @@
-$(function() {
+(function() {
 
     function dragHandler(event) {
         event.stopPropagation();
@@ -13,13 +13,33 @@ $(function() {
 
         reader.onload = function(data) {
             var base64 = data.target.result;
-            //var img = document.createElement('img');
-            //img.src = base64;
-
             var fileImg = document.querySelector('.file-img');
-            fileImg.style.backgroundImage = 'url(' + base64 + ')';
+            var fileInfo = document.querySelector('.file-info');
+            var dropText = document.querySelector('.drop-text');
+            var file = this.myFile;
+            var type = file.type;
+            var spl = file.name.split('.');
+            var ext = spl.length > 1 ? spl[spl.length - 1] : '';
 
-            //$('body').append('<img src="' + base64 + '" />')
+            //var info = "<li>Name: " + file.name + "</br>" + " Size: " + file.size + " bytes</br>" + " Type: " + file.type + "</br>" + " Modified Date: " + file.lastModifiedDate + "</li>";
+
+            switch(type){
+                case 'image/png':
+                case 'image/jpg':
+                case 'image/jpeg':
+                case 'image/gif':
+                case 'image/svg':
+                case 'image/svg+xml':
+                    fileImg.style.backgroundImage = 'url(' + base64 + ')';
+                    dropText.innerHTML = '';
+                    break;
+                default:
+                    fileImg.style.backgroundImage = 'url("img/file-o.svg")';
+                    dropText.innerHTML = "." + ext;
+            }
+
+            fileInfo.innerHTML = file.name;
+
         };
 
         reader.onprogress = function(data){
@@ -30,10 +50,12 @@ $(function() {
         }
 
         reader.readAsDataURL(file);
+
+        //don't know why the closure isn't working so doing some data smuggling here.
+        reader.myFile = file;
     }
 
     function filesDropped(event) {
-        debugger;
         event.stopPropagation();
         event.preventDefault();
 
@@ -42,10 +64,8 @@ $(function() {
         //event.dataTransfer occurs when the the file is dropped, this.files works when
         var files = event.dataTransfer ? event.dataTransfer.files : this.files;
         var file = files[0];
-        var info = "<li>Name: " + file.name + "</br>" + " Size: " + file.size + " bytes</br>" + " Type: " + file.type + "</br>" + " Modified Date: " + file.lastModifiedDate + "</li>";
 
         uploadFile(file);
-        console.log(info);
     }
 
     window.onload = function() {
@@ -65,4 +85,4 @@ $(function() {
             console.log("Your browser does not support File API");
         }
     }
-});
+})();
