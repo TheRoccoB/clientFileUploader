@@ -1,15 +1,42 @@
-.area
-{
+.area {
     border: 5px dotted #ccc;
-    height:300px;
+    height: 300px;
     text-align: center;
 }
 
-.drag
-{
+.drag {
     border: 5px dotted #000;
     background-color: #ddd;
 }
 
+.upload-label {
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: pointer
+}
 
+.img-container{
+    position:relative;width:100%;height:calc(100% - 25px);padding:5px;box-sizing: border-box;border:1px
+}
 
+.file-img{
+    position:relative;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    width:100%;height:100%;
+}
+
+.drop-text{
+    position:relative;margin:auto;top:50%;transform:translateY(-50%)
+}
+
+.file-info{
+    position:relative;
+}
+
+.super-hidden{
+    opacity:0;
+    visibility:hidden
+}
