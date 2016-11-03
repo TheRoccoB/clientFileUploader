@@ -1,5 +1,19 @@
 (function() {
 
+    var TEMPLATE = '' +
+        '<div id="drop_area" class="area">' +
+        '    <label for="files" class="upload-label" style="">' +
+        '        <div class="img-container" style="">' +
+        '            <div class="file-img" style="">' +
+        '                <div class="drop-text" style="">Drop your files</div>' +
+        '            </div>' +
+        '        </div>' +
+        '        <div class="file-info"></div>' +
+        '    </label>' +
+        '</div>' +
+        '<input type="file" id="files" class="super-hidden" visibility="hidden" style="" title="&nbsp;"/>';
+
+
     function dragHandler(event) {
         event.stopPropagation();
         event.preventDefault();
@@ -68,7 +82,7 @@
         uploadFile(file);
     }
 
-    window.onload = function() {
+    function registerDropArea() {
 
         //Check File API support
         if (window.File && window.FileList) {
@@ -82,7 +96,16 @@
             input.addEventListener("change", filesDropped, false);
         }
         else {
-            console.log("Your browser does not support File API");
+            throw 'invalid selector' + "Your browser does not support File API";
         }
+    }
+
+    window.clientFileUploader = function(selector){
+        var el = document.querySelector(selector);
+        if (!el){
+            throw 'invalid selector' + selector;
+        }
+        el.innerHTML = TEMPLATE;
+        registerDropArea();
     }
 })();

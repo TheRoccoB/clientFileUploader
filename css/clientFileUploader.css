@@ -1,7 +1,10 @@
 .area {
     border: 5px dotted #ccc;
-    height: 300px;
+    position:relative;
+    width:100%;
+    height:100%;
     text-align: center;
+    box-sizing:border-box;
 }
 
 .drag {
@@ -16,8 +19,13 @@
     cursor: pointer
 }
 
-.img-container{
-    position:relative;width:100%;height:calc(100% - 25px);padding:5px;box-sizing: border-box;border:1px
+.img-container {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 25px);
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px
 }
 
 .file-img{
@@ -25,11 +33,16 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-size: contain;
-    width:100%;height:100%;
+    width:100%;
+    height:100%;
+    box-sizing:border-box;
 }
 
 .drop-text{
-    position:relative;margin:auto;top:50%;transform:translateY(-50%)
+    position:relative;
+    margin:auto;
+    top:50%;
+    transform:translateY(-50%)
 }
 
 .file-info{
@@ -38,5 +51,6 @@
 
 .super-hidden{
     opacity:0;
-    visibility:hidden
+    visibility:hidden;
+    display:none;
 }

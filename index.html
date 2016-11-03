@@ -4,24 +4,20 @@
     <title></title>
 
     <script src="//localhost:35729/livereload.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/clientFileUploader.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script>
+        window.onload = function(){
+            clientFileUploader('#fileUploadContainer')
+        }
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="css/clientFileUploader.css">
 </head>
 <body>
-<div>
-    <div id="drop_area" class="area">
-        <label for="files" class="upload-label" style="">
-            <div class="img-container" style="">
-                <div class="file-img" style="">
-                    <div class="drop-text" style="">Drop your files</div>
-                </div>
-            </div>
-            <div class="file-info"></div>
-        </label>
-    </div>
 
-    <input type="file" id="files" class="super-hidden" visibility="hidden" style="" title="&nbsp;"/>
+<div id="fileUploadContainer" style="width:200px;height:200px;">
 </div>
+
 </body>
 </html>
