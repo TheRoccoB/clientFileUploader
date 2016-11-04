@@ -13,6 +13,9 @@
         '</div>' +
         '<input type="file" id="files" class="super-hidden" visibility="hidden" style="" title="&nbsp;"/>';
 
+    //svg of file icon from font awesome
+    var FILE_SVG = 'url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTc5MiIgaGVpZ2h0PSIxNzkyIiB2aWV3Qm94PSIwIDAgMTc5MiAxNzkyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0xNTk2IDM4MHEyOCAyOCA0OCA3NnQyMCA4OHYxMTUycTAgNDAtMjggNjh0LTY4IDI4aC0xMzQ0cS00MCAwLTY4LTI4dC0yOC02OHYtMTYwMHEwLTQwIDI4LTY4dDY4LTI4aDg5NnE0MCAwIDg4IDIwdDc2IDQ4em0tNDQ0LTI0NHYzNzZoMzc2cS0xMC0yOS0yMi00MWwtMzEzLTMxM3EtMTItMTItNDEtMjJ6bTM4NCAxNTI4di0xMDI0aC00MTZxLTQwIDAtNjgtMjh0LTI4LTY4di00MTZoLTc2OHYxNTM2aDEyODB6Ii8+PC9zdmc+")'
+
 
     function dragHandler(event) {
         event.stopPropagation();
@@ -35,8 +38,6 @@
             var spl = file.name.split('.');
             var ext = spl.length > 1 ? spl[spl.length - 1] : '';
 
-            //var info = "<li>Name: " + file.name + "</br>" + " Size: " + file.size + " bytes</br>" + " Type: " + file.type + "</br>" + " Modified Date: " + file.lastModifiedDate + "</li>";
-
             switch(type){
                 case 'image/png':
                 case 'image/jpg':
@@ -44,11 +45,11 @@
                 case 'image/gif':
                 case 'image/svg':
                 case 'image/svg+xml':
-                    fileImg.style.backgroundImage = 'url(' + base64 + ')';
+                    fileImg.style.backgroundImage = FILE_SVG;
                     dropText.innerHTML = '';
                     break;
                 default:
-                    fileImg.style.backgroundImage = 'url("img/file-o.svg")';
+                    fileImg.style.backgroundImage = FILE_SVG;
                     dropText.innerHTML = "." + ext;
             }
 
